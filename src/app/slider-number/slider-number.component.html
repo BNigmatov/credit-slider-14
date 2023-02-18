@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <div class="wrapper">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ label }}</mat-label>
+      <input matInput type="text" formControlName="input">
+    </mat-form-field>
+    <div class="slider">
+      <p class="slider-min lh-1">{{min | number:"1.0-0"}}&nbsp;{{ suffix === 'лет' ? 'год' : suffix }}</p>
+      <mat-slider tabIndex="-1"
+                  [min]="min" [max]="max" [step]="step" [color]="color"
+                  formControlName="slider"
+                  (input)="changeSlider($event)"
+      ></mat-slider>
+      <p class="slider-max lh-1">{{max | number:"1.0-0"}}&nbsp;{{ suffix }}</p>
+    </div>
+    <mat-error *ngIf="formSlider.value < min || 0">{{ msgErrorMin }}</mat-error>
+    <mat-error *ngIf="max > 0  &&  formSlider.value > max">{{ msgErrorMax }}</mat-error>
+  </div>
+</form>

@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+
+  <mat-form-field appearance="outline">
+	<mat-label>Расположение жилья</mat-label>
+	<mat-select formControlName="location">
+	  <mat-option value="tashkent" i18n="@@PUBLIC-CREDIT-FORM-LOCATION-TASHKENT">г.Ташкент</mat-option>
+	  <mat-option value="region" i18n="@@PUBLIC-CREDIT-FORM-LOCATION-REGION">Регион Узбекистана</mat-option>
+	</mat-select>
+  </mat-form-field>
+
+  <!-- <div class="checkbox-form">
+	<mat-checkbox formControlName="is_subsidy" labelPosition="before">
+	  <ng-container i18n="@@PUBLIC-CREDIT-FORM-SUBSIDY"> На основании субсидии?</ng-container>
+	</mat-checkbox>
+  </div> -->
+
+  <ng-container *ngIf="form.value.location">
+
+	<slider-number formControlName="credit_ammount"
+				  label="Общая стоимость квартиры" i18n-label="@@PUBLIC-CREDIT-FORM-credit_summa"
+				  [min]="10_000_000" [max]="1_000_000_000" [step]="1_000_000"
+				  suffix="сўм"
+	></slider-number>
+	<!-- <slider-number formControlName="initial_recommend"
+				  label="Первоначальный процент взноса" i18n-label="@@PUBLIC-CREDIT-FORM-initial_recommend"
+				  [min]="initialMinPercentage" [max]="99"
+				  suffix="%"
+	></slider-number> -->
+	<slider-number formControlName="initial_ammount"
+				  label="Первоначальная сумма взноса" i18n-label="@@PUBLIC-CREDIT-FORM-initial_ammount"
+				  [min]="initialMin" [max]="form.value.credit_ammount - 1_000_000" [step]="1_000_000"
+				  suffix="сўм"
+	></slider-number>
+	<slider-number formControlName="credit_summa"
+				  label="Сумма кредита" i18n-label="@@PUBLIC-CREDIT-FORM-credit_summa"
+				  [min]="1_000_000" [max]="summaMax" [step]="1_000_000"
+				  suffix="сўм"
+	></slider-number>
+	<slider-number formControlName="credit_period"
+				  label="Период (в годах)" i18n-label="@@PUBLIC-CREDIT-FORM-credit_period"
+				  [min]="1" [max]="20"
+				  suffix="лет" i18n-suffix="@@PUBLIC-CREDIT-FORM-credit_period-SUFFIX"
+	></slider-number>
+
+  </ng-container>
+</form>

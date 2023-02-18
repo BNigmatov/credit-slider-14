@@ -1,0 +1,107 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.slider {
+  position: relative;
+  top: -33px;
+  height: 20px;
+}
+
+.mat-error {
+  display: block;
+  margin-top: -2.5rem;
+  text-align: center;
+  font-size: 12px;
+}
+
+:host ::ng-deep {
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  mat-slider {
+    width: 100%;
+  }
+
+  .mat-slider-horizontal .mat-slider-wrapper {
+    height: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .mat-slider-horizontal {
+    height: 10px;
+    padding: 0;
+
+    .mat-slider-track-wrapper,
+    .mat-slider-track-background,
+    .mat-slider-track-fill,
+    .mat-slider-ticks-container,
+    .mat-slider-ticks {
+      height: 10px;
+    }
+  }
+
+  .mat-slider-thumb {
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    top: -15px;
+  }
+
+  .mat-slider.mat-slider-min-value:not(.mat-slider-thumb-label-showing)
+    .mat-slider-thumb {
+    background-color: #ffffff;
+  }
+
+  .mat-slider:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb {
+    transform: scale(0.8);
+  }
+
+  .mat-slider:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb {
+    transform: scale(0.8);
+  }
+
+  .mat-slider:not(.mat-slider-disabled):hover .mat-slider-thumb {
+    transform: scale(0.8);
+  }
+
+  .slider-min,
+  .slider-max {
+    position: absolute;
+    bottom: -0.7rem;
+    font-size: 0.7rem;
+    margin-bottom: 0;
+  }
+
+  .slider-min {
+    left: 0;
+  }
+
+  .slider-max {
+    right: 0;
+  }
+
+  .mat-slider.mat-accent .mat-slider-track-fill {
+    background-image: linear-gradient(to bottom, #5d9cec, #4a89dc);
+  }
+
+  .mat-slider-track-background {
+    background-color: #b3d2ff;
+  }
+
+  .mat-slider.mat-accent .mat-slider-thumb {
+    background-color: #ffffff;
+    box-shadow: 0.5px 0.5px 2px 1px rgb(0 0 0 / 32%);
+    border: none;
+  }
+
+  .mat-slider:hover .mat-slider-track-background,
+  .mat-slider.cdk-focused .mat-slider-track-background {
+    background-color: #b3d2ff;
+  }
+}
